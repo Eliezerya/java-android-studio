@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Belajar Java App</string>
+    <string name="intro">Introduction</string>
+    <string name="length">Panjang</string>
+    <string name="width">Lebar</string>
+    <string name="material">Bahan</string>
+    <string name="price">Harga</string>
+    <string name="answer">Luas jalan </string>
+    <string name="harga_desc">Harga Total </string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+</resources>
