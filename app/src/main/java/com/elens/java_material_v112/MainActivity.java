@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingActivity.class);
         TextView textView = findViewById(R.id.input);
         String name = textView.getText().toString();
+        //send a message to other activity
         intent.putExtra("name", name);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
                 this, R.anim.fade_in, R.anim.fade_out);
@@ -71,6 +72,12 @@ public class MainActivity extends AppCompatActivity {
         ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
                 this, R.anim.fade_in, R.anim.fade_out);
         Toast.makeText(this,"Trial Opened", Toast.LENGTH_SHORT).show();
+        startActivity(intent,options.toBundle());
+    }
+    public void openDynamic(View view){
+        Intent intent = new Intent(this, dynamicActivity.class);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
+                this, R.anim.fade_in, R.anim.fade_out);
         startActivity(intent,options.toBundle());
     }
 }

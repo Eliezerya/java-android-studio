@@ -14,6 +14,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
 public class TrialActivity extends AppCompatActivity {
 
     @Override
@@ -41,26 +44,27 @@ public class TrialActivity extends AppCompatActivity {
     public void countLuas(View view){
         Context context = this;
         StringBuilder builder = new StringBuilder();
-
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
         String answer = context.getString(R.string.answer);
         String priceDesc = context.getString(R.string.harga_desc);
-        builder.append(answer+ " ");
+        String rupiah = context.getString(R.string.RP);
+        builder.append(answer).append(" ");
 
         EditText panjang = findViewById(R.id.textPanjang);
         EditText lebar = findViewById(R.id.textLebar);
-        EditText harga = findViewById(R.id.textHargaBahan);
+        EditText hargaText = findViewById(R.id.textHargaBahan);
         TextView answerArea = findViewById(R.id.answerArea);
-        double p = Double.parseDouble(panjang.getText().toString());
-        double l = Double.parseDouble(lebar.getText().toString());
-        double hargaDouble = 1;
-        double luas = p * l;
-        double output = 1;
-        builder.append(luas + " ");
-        if (harga!=null){
-            hargaDouble = Double.parseDouble(harga.getText().toString());
-            builder.append(priceDesc + " ");
-            output = luas * hargaDouble;
-            builder.append(output);
+
+        long p = Integer.parseInt(panjang.getText().toString());
+        long l = Integer.parseInt(lebar.getText().toString());
+        long harga;
+        long luas = p * l;
+        builder.append(luas).append(" ");
+        if (hargaText!=null){
+            harga = Long.parseLong(hargaText.getText().toString());
+            builder.append(priceDesc).append(" ").append(rupiah).append(".").append(" ");
+            harga = luas * harga;
+            builder.append(decimalFormat.format(harga));
         }
 
 
